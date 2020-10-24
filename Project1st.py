@@ -9,11 +9,11 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLab
 class FirstWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('проект.ui', self)  # Загружаем дизайн
+        uic.loadUi('project1.ui', self)  # Загружаем дизайн
 
         self.entry_to_user_list.hide()
         self.user_entry.setChecked(True)
-        self.user_entry.clicked.connect(self.open)
+        self.user_entry.clicked.connect(self.user_run)
 
         self.entry_to_admin_list.hide()
         self.admin_entry.setChecked(True)
@@ -40,7 +40,19 @@ class FirstWidget(QMainWindow):
 class UserWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('пользователь.ui', self)
+        uic.loadUi('user.ui', self)
+
+        self.dialog1 = AnketaWidget()
+        self.entry.clicked.connect(self.run)
+
+    def run(self):
+        self.dialog1.show()
+
+
+class AnketaWidget(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('anketa.ui', self)
 
 
 if __name__ == '__main__':
