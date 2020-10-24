@@ -13,7 +13,7 @@ class FirstWidget(QMainWindow):
 
         self.entry_to_user_list.hide()
         self.user_entry.setChecked(True)
-        self.user_entry.clicked.connect(self.user_run)
+        self.user_entry.clicked.connect(self.open)
 
         self.entry_to_admin_list.hide()
         self.admin_entry.setChecked(True)
@@ -53,7 +53,6 @@ class AnketaWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('anketa.ui', self)
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
