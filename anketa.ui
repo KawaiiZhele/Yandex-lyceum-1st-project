@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>411</width>
-    <height>804</height>
+    <height>803</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,8 +44,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -89,8 +89,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -111,8 +111,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -133,7 +133,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
 </string>
        </property>
       </widget>
@@ -155,7 +156,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
 </string>
        </property>
       </widget>
@@ -177,7 +179,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
 </string>
        </property>
       </widget>
@@ -199,8 +202,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -243,8 +246,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -265,8 +268,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -287,8 +290,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>
@@ -332,8 +335,8 @@ color: #FF9C7F</string>
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
-color: #FF9C7F;
-</string>
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F</string>
        </property>
       </widget>
      </item>

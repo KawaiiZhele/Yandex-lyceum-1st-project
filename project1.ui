@@ -27,6 +27,17 @@
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout_3">
+     <item row="0" column="0" colspan="2">
+      <widget class="QCheckBox" name="user_entry">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
+color: #C0ED95</string>
+       </property>
+       <property name="text">
+        <string>Пользователь</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0" colspan="2">
       <widget class="QPushButton" name="entry_to_user_list">
        <property name="styleSheet">
@@ -36,17 +47,6 @@ background: #C0ED95</string>
        </property>
        <property name="text">
         <string>Войти</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <widget class="QCheckBox" name="user_entry">
-       <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #C0ED95</string>
-       </property>
-       <property name="text">
-        <string>Пользователь</string>
        </property>
       </widget>
      </item>
