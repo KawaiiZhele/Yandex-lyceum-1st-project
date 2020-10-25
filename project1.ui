@@ -6,59 +6,116 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>173</height>
+    <width>420</width>
+    <height>246</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background: #2E2E2E</string>
+   </property>
    <widget class="QWidget" name="formLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>103</width>
-      <height>80</height>
+      <x>40</x>
+      <y>110</y>
+      <width>151</width>
+      <height>61</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout_3">
-     <item row="0" column="0">
+     <item row="1" column="0" colspan="2">
+      <widget class="QPushButton" name="entry_to_user_list">
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+border: 6px solid #C0ED95;
+background: #C0ED95</string>
+       </property>
+       <property name="text">
+        <string>Войти</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
       <widget class="QCheckBox" name="user_entry">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
+color: #C0ED95</string>
+       </property>
        <property name="text">
         <string>Пользователь</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="entry_to_user_list">
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-     </item>
     </layout>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>421</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #C0ED95</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>231</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Fulbo Argenta&quot;;
+color: #2E2E2E</string>
+     </property>
+     <property name="text">
+      <string>Вход в систему</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="formLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>40</y>
-      <width>91</width>
-      <height>80</height>
+      <x>230</x>
+      <y>110</y>
+      <width>151</width>
+      <height>61</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout_4">
-     <item row="1" column="0">
+     <item row="1" column="0" colspan="2">
       <widget class="QPushButton" name="entry_to_admin_list">
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+border: 6px solid #C0ED95;
+background: #C0ED95</string>
+       </property>
        <property name="text">
-        <string>PushButton</string>
+        <string>Войти</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
+     <item row="0" column="0" colspan="2">
       <widget class="QCheckBox" name="admin_entry">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
+color: #C0ED95</string>
+       </property>
        <property name="text">
         <string>Наниматель</string>
        </property>
@@ -66,26 +123,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>10</y>
-      <width>111</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Вход в систему</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>250</width>
+     <width>420</width>
      <height>21</height>
     </rect>
    </property>
