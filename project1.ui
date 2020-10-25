@@ -43,7 +43,9 @@ color: #C0ED95</string>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
 border: 6px solid #C0ED95;
-background: #C0ED95</string>
+background: #C0ED95;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #2E2E2E</string>
        </property>
        <property name="text">
         <string>Войти</string>
@@ -103,7 +105,9 @@ color: #2E2E2E</string>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
 border: 6px solid #C0ED95;
-background: #C0ED95</string>
+background: #C0ED95;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #2E2E2E</string>
        </property>
        <property name="text">
         <string>Войти</string>

@@ -6,25 +6,128 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
-    <height>304</height>
+    <width>528</width>
+    <height>749</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">FF758B</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background: #2E2E2E</string>
+   </property>
    <widget class="QPushButton" name="entry">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>221</width>
-      <height>101</height>
+      <x>190</x>
+      <y>110</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+border: 6px solid #FF758B;
+background: #FF758B;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #2E2E2E</string>
+    </property>
     <property name="text">
-     <string>создание анкеты</string>
+     <string>Создать анкету</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>531</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #FF758B</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_username">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>30</y>
+       <width>291</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Fulbo Argenta&quot;;
+color: #2E2E2E</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>680</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+border: 6px solid #FF758B;
+background: #FF758B;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #2E2E2E</string>
+    </property>
+    <property name="text">
+     <string>Выйти</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>231</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #FF758B;
+border-radius: 10px;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF758B</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>170</y>
+      <width>231</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #FF758B;
+border-radius: 10px;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF758B</string>
     </property>
    </widget>
   </widget>
@@ -33,7 +136,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>332</width>
+     <width>528</width>
      <height>21</height>
     </rect>
    </property>
