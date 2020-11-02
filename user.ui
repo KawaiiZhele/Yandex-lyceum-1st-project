@@ -72,11 +72,11 @@ color: #2E2E2E</string>
 color: #2E2E2E</string>
      </property>
      <property name="text">
-      <string/>
+      <string>Добро пожаловать!</string>
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exit_user">
     <property name="geometry">
      <rect>
       <x>410</x>

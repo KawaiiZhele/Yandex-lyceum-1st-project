@@ -378,7 +378,7 @@ color: #2E2E2E</string>
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exit_ankuser">
     <property name="geometry">
      <rect>
       <x>290</x>
