@@ -34,7 +34,7 @@
 color: #C0ED95</string>
        </property>
        <property name="text">
-        <string>Пользователь</string>
+        <string>Соискатель</string>
        </property>
       </widget>
      </item>
@@ -121,7 +121,7 @@ color: #2E2E2E</string>
 color: #C0ED95</string>
        </property>
        <property name="text">
-        <string>Наниматель</string>
+        <string>Работодатель</string>
        </property>
       </widget>
      </item>

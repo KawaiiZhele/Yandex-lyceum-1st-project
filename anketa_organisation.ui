@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>411</width>
-    <height>762</height>
+    <height>797</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
       <widget class="QLabel" name="label">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>ФИО(полностью):</string>
@@ -42,10 +42,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -53,7 +53,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_5">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Возраст:</string>
@@ -64,10 +64,10 @@ color: #FF9C7F</string>
       <widget class="QSpinBox" name="spinBox_2">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 4px;
 font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
+color: #ABBEFF
 </string>
        </property>
       </widget>
@@ -76,7 +76,7 @@ color: #FF9C7F
       <widget class="QLabel" name="label_2">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Должность:</string>
@@ -87,10 +87,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit_2">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -98,7 +98,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_3">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Мобильный телефон:</string>
@@ -109,10 +109,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit_3">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -120,7 +120,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_4">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Эл. почта:</string>
@@ -131,10 +131,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit_4">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
+color: #ABBEFF
 </string>
        </property>
       </widget>
@@ -143,7 +143,7 @@ color: #FF9C7F
       <widget class="QLabel" name="label_14">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Профиль в соц.сетях:</string>
@@ -154,10 +154,10 @@ color: #FF9C7F</string>
       <widget class="QTextEdit" name="textEdit_2">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
+color: #ABBEFF
 </string>
        </property>
       </widget>
@@ -166,7 +166,7 @@ color: #FF9C7F
       <widget class="QLabel" name="label_8">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Дата рождения:</string>
@@ -177,10 +177,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit_5">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid#ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
+color: #ABBEFF
 </string>
        </property>
       </widget>
@@ -189,7 +189,7 @@ color: #FF9C7F
       <widget class="QLabel" name="label_9">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Место проживания:</string>
@@ -200,10 +200,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit_6">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -211,7 +211,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_10">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Зарплатные ожидания: </string>
@@ -222,10 +222,10 @@ color: #FF9C7F</string>
       <widget class="QSpinBox" name="spinBox">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 4px;
 font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -233,7 +233,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_11">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Гражданство:</string>
@@ -244,10 +244,10 @@ color: #FF9C7F</string>
       <widget class="QLineEdit" name="lineEdit_7">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -255,7 +255,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_12">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Языки:</string>
@@ -266,10 +266,10 @@ color: #FF9C7F</string>
       <widget class="QTextEdit" name="textEdit_3">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -277,7 +277,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_13">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Образование:</string>
@@ -288,10 +288,10 @@ color: #FF9C7F</string>
       <widget class="QTextEdit" name="textEdit_4">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -299,7 +299,7 @@ color: #FF9C7F</string>
       <widget class="QLabel" name="label_6">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Опыт работы:</string>
@@ -310,10 +310,10 @@ color: #FF9C7F</string>
       <widget class="QDoubleSpinBox" name="doubleSpinBox">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 4px;
 font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
+color: #ABBEFF
 </string>
        </property>
       </widget>
@@ -322,7 +322,7 @@ color: #FF9C7F
       <widget class="QLabel" name="label_7">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Расскажите о себе, своих достижениях и качествах:</string>
@@ -333,10 +333,10 @@ color: #FF9C7F</string>
       <widget class="QTextEdit" name="textEdit">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
+border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+color:#ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -352,7 +352,7 @@ color: #FF9C7F</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: #FF9C7F</string>
+     <string notr="true">background: #ABBEFF</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -363,9 +363,9 @@ color: #FF9C7F</string>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>30</x>
        <y>30</y>
-       <width>291</width>
+       <width>361</width>
        <height>20</height>
       </rect>
      </property>
@@ -374,7 +374,7 @@ color: #FF9C7F</string>
 color: #2E2E2E</string>
      </property>
      <property name="text">
-      <string>создание резюме:</string>
+      <string>создание предложения:</string>
      </property>
     </widget>
    </widget>
@@ -389,8 +389,8 @@ color: #2E2E2E</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
-border: 6px solid #FF9C7F;
-background: #FF9C7F;
+border: 6px solid #ABBEFF;
+background: #ABBEFF;
 font: 10pt &quot;Fulbo Argenta&quot;;
 color: #2E2E2E</string>
     </property>
