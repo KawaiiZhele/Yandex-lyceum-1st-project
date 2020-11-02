@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5 import uic  # Импортируем uic
+from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLabel, QLineEdit, \
     QCheckBox
@@ -23,10 +23,15 @@ class FirstWidget(QMainWindow):
                   self.admin_entry: self.entry_to_admin_list}
 
         self.dialog = UserWidget()
+        self.dialog3 = AdminWidget()
         self.entry_to_user_list.clicked.connect(self.user_run)
+        self.entry_to_admin_list.clicked.connect(self.admin_run)
 
     def user_run(self):
         self.dialog.show()
+
+    def admin_run(self):
+        self.dialog3.show()
 
     def open(self):
         checkbox = self.sender()
@@ -37,7 +42,7 @@ class FirstWidget(QMainWindow):
             line.show()
 
 
-class UserWidget(QMainWindow):
+class UserWidget(QMainWindow):  # соискатель
     def __init__(self):
         super().__init__()
         uic.loadUi('user.ui', self)
@@ -45,14 +50,46 @@ class UserWidget(QMainWindow):
         self.dialog1 = AnketaWidget()
         self.entry.clicked.connect(self.run)
 
+        self.exit_user.clicked.connect(self.exituser)
+
     def run(self):
         self.dialog1.show()
+
+    def exituser(self):
+        self.dialog.hide()
+        # self.dialog1.hide()
 
 
 class AnketaWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('anketa.ui', self)
+
+        self.exit_ankuser.clicked.connect(self.exit_ank)
+
+    def exit_ank(self):
+        self.dialog1.hide()
+
+
+
+
+class AdminWidget(QMainWindow):  # работодатель
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('admin.ui', self)
+
+        self.dialog2 = AnketaWidget()
+        # self.entry.clicked.connect(self.run)
+
+    def run(self):
+        self.dialog2.show()
+
+
+class Anketa2Widget(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('anketa.ui', self)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
