@@ -10,7 +10,20 @@ numbers = '0123456789'
 
 
 def name_check(chname):
-    pass
+    global true_name_user
+    text, flag = '', True
+    for i in chname:
+        if i not in letters and i != ' ':
+            flag = False
+            text = 'В указанном имени присутствуют неизвестные символы'
+            break
+    if ' ' not in chname and flag:
+        flag = False
+        text = 'Неправильная форма заполнения.'
+    if flag:
+        return True
+    Question(text)
+    return False
 
 
 def telephone_number_check(chnumber):
@@ -24,10 +37,6 @@ def email_check(chemail):
 def set_text():
     with open('проба.txt', encoding='utf8') as file:
         return file.read()
-
-
-true_name_user = ''
-true_name_admin = ''
 
 
 class FirstWidget(QMainWindow):
@@ -66,7 +75,7 @@ class FirstWidget(QMainWindow):
             line.show()
 
 
-class UserWidget(QMainWindow):  # соискатель
+class UserWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('user.ui', self)
@@ -95,11 +104,12 @@ class AnketaWidget(QMainWindow):
         self.hide()
 
     def save_ank(self):
-        self.dialog = Question()
-        # self.dialog.show()
+        if name_check(self.user_name.text()):
+            self.user_name.setText('')
+            self.hide()
 
 
-class AdminWidget(QMainWindow):  # работодатель
+class AdminWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('admin.ui', self)
@@ -129,11 +139,11 @@ class Anketa2Widget(QMainWindow):
 
 
 class Question(QMessageBox):
-    def __init__(self):
+    def __init__(self, text):
         super().__init__()
         # uic.loadUi('oshibka.ui', self)
 
-        QMessageBox.question(self, 'PyQt5 message', "Do you like PyQt5?",
+        QMessageBox.question(self, 'Сообщение об ошибке', text,
                              QMessageBox.Ok)
         self.hide()
 
