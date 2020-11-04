@@ -22,16 +22,16 @@ class FirstWidget(QMainWindow):
         self.d = {self.user_entry: self.entry_to_user_list,
                   self.admin_entry: self.entry_to_admin_list}
 
-        self.dialog = UserWidget()
-        self.dialog3 = AdminWidget()
+        self.dialog_user = UserWidget()
+        self.dialog_admin = AdminWidget()
         self.entry_to_user_list.clicked.connect(self.user_run)
         self.entry_to_admin_list.clicked.connect(self.admin_run)
 
     def user_run(self):
-        self.dialog.show()
+        self.dialog_user.show()
 
     def admin_run(self):
-        self.dialog3.show()
+        self.dialog_admin.show()
 
     def open(self):
         checkbox = self.sender()
@@ -47,17 +47,16 @@ class UserWidget(QMainWindow):  # соискатель
         super().__init__()
         uic.loadUi('user.ui', self)
 
-        self.dialog1 = AnketaWidget()
+        self.dialog_user_anketa = AnketaWidget()
         self.entry.clicked.connect(self.run)
 
         self.exit_user.clicked.connect(self.exituser)
 
     def run(self):
-        self.dialog1.show()
+        self.dialog_user_anketa.show()
 
     def exituser(self):
-        self.dialog.hide()
-        # self.dialog1.hide()
+        self.hide()
 
 
 class AnketaWidget(QMainWindow):
@@ -65,12 +64,10 @@ class AnketaWidget(QMainWindow):
         super().__init__()
         uic.loadUi('anketa.ui', self)
 
-        self.exit_ankuser.clicked.connect(self.exit_ank)
+        self.exit_ankuser.clicked.connect(self.exit_ank)  # (ДОРАБОТАТЬ!!!!!!!)
 
     def exit_ank(self):
-        self.dialog1.hide()
-
-
+        self.hide()
 
 
 class AdminWidget(QMainWindow):  # работодатель
@@ -78,17 +75,26 @@ class AdminWidget(QMainWindow):  # работодатель
         super().__init__()
         uic.loadUi('admin.ui', self)
 
-        self.dialog2 = AnketaWidget()
-        # self.entry.clicked.connect(self.run)
+        self.dialog_admin_anketa = Anketa2Widget()
+        self.entry.clicked.connect(self.run)
+        self.exit_admin.clicked.connect(self.exitadmin)
 
     def run(self):
-        self.dialog2.show()
+        self.dialog_admin_anketa.show()
+
+    def exitadmin(self):
+        self.hide()
 
 
 class Anketa2Widget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('anketa.ui', self)
+        uic.loadUi('anketa_organisation.ui', self)
+
+        self.exit_ankuser.clicked.connect(self.exit_ank_admin)
+
+    def exit_ank_admin(self):
+        self.hide()
 
 
 if __name__ == '__main__':
