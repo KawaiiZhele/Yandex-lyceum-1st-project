@@ -1,9 +1,33 @@
 import sys
 
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLabel, QLineEdit, \
     QCheckBox
+
+letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+numbers = '0123456789'
+
+
+def name_check(chname):
+    pass
+
+
+def telephone_number_check(chnumber):
+    pass
+
+
+def email_check(chemail):
+    pass
+
+
+def set_text():
+    with open('проба.txt', encoding='utf8') as file:
+        return file.read()
+
+
+true_name_user = ''
+true_name_admin = ''
 
 
 class FirstWidget(QMainWindow):
@@ -64,10 +88,15 @@ class AnketaWidget(QMainWindow):
         super().__init__()
         uic.loadUi('anketa.ui', self)
 
-        self.exit_ankuser.clicked.connect(self.exit_ank)  # (ДОРАБОТАТЬ!!!!!!!)
+        self.exit_ankuser.clicked.connect(self.exit_ank)
+        self.save_ankuser.clicked.connect(self.save_ank)  # (ДОРАБОТАТЬ!!!!!!!)
 
     def exit_ank(self):
         self.hide()
+
+    def save_ank(self):
+        self.dialog = Question()
+        # self.dialog.show()
 
 
 class AdminWidget(QMainWindow):  # работодатель
@@ -78,6 +107,8 @@ class AdminWidget(QMainWindow):  # работодатель
         self.dialog_admin_anketa = Anketa2Widget()
         self.entry.clicked.connect(self.run)
         self.exit_admin.clicked.connect(self.exitadmin)
+
+        self.check_text.setText(set_text())
 
     def run(self):
         self.dialog_admin_anketa.show()
@@ -94,6 +125,16 @@ class Anketa2Widget(QMainWindow):
         self.exit_ankuser.clicked.connect(self.exit_ank_admin)
 
     def exit_ank_admin(self):
+        self.hide()
+
+
+class Question(QMessageBox):
+    def __init__(self):
+        super().__init__()
+        # uic.loadUi('oshibka.ui', self)
+
+        QMessageBox.question(self, 'PyQt5 message', "Do you like PyQt5?",
+                             QMessageBox.Ok)
         self.hide()
 
 
