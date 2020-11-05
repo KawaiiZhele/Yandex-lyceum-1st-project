@@ -6,20 +6,22 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLab
     QCheckBox
 
 letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+letters_eng = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 numbers = '0123456789'
+special = '@.'
+special_name = '"'
 
 
 def name_check(chname):
-    global true_name_user
-    text, flag = '', True
+    text, flag = ['Неправильная форма заполнения. Попробуйте снова.',
+                  'Пример заполнения: Иванов Иван Иванович'], True
     for i in chname:
         if i not in letters and i != ' ':
             flag = False
-            text = 'В указанном имени присутствуют неизвестные символы'
+            text[0] = 'В указанном имени присутствуют неизвестные символы.'
             break
     if ' ' not in chname and flag:
         flag = False
-        text = 'Неправильная форма заполнения.'
     if flag:
         return True
     Question(text)
@@ -27,10 +29,49 @@ def name_check(chname):
 
 
 def telephone_number_check(chnumber):
-    pass
+    text, flag = ['Неправильная форма заполнения. Введите, пожалуйста, заново.',
+                  'Пример заполнения: +78005553535 или 78005553535'], True
+
+    if len(chnumber) == 0:
+        Question(text)
+        return False
+
+    if chnumber[0] == '+':
+        chnumber = chnumber[1:]
+
+    if len(chnumber) != 11:
+        flag = False
+
+    for i in chnumber:
+        if i not in numbers:
+            flag = False
+            text[0] = 'В указанном номере присутствуют неизвестные символы.'
+            break
+
+    if flag:
+        return True
+
+    Question(text)
+    return False
 
 
 def email_check(chemail):
+    text, flag = ['Неправильная форма заполнения. Попробуйте снова.',
+                  'Пример заполнения: example@gmail.com'], True
+    for i in chemail:
+        if i not in letters_eng and i not in special:
+            flag = False
+            text[0] = 'В указанном имени присутствуют неизвестные символы.'
+            break
+    if ' ' not in chemail and flag:
+        flag = False
+    if flag:
+        return True
+    Question(text)
+    return False
+
+
+def birth_check(chbirth):
     pass
 
 
@@ -101,12 +142,22 @@ class AnketaWidget(QMainWindow):
         self.save_ankuser.clicked.connect(self.save_ank)  # (ДОРАБОТАТЬ!!!!!!!)
 
     def exit_ank(self):
+        self.user_name.setText('')
+        self.tele_user.setText('')
+        # self.age_user.setText()
         self.hide()
 
     def save_ank(self):
-        if name_check(self.user_name.text()):
-            self.user_name.setText('')
-            self.hide()
+        check = [self.user_name, self.job_user, self.tele_user, self.email_user, self.net_user,
+                 self.birth_user, self.placelive_user, self.salary_user, self.citizenship_user,
+                 self.lenguage_user, self.education_user, self.about_you_user]
+        flag = True
+        # ВСТАВИТЬ СЮДА ИЗ 213
+        if flag:
+            if name_check(self.user_name.text()) and \
+                    telephone_number_check(self.tele_user.text()) and \
+                    email_check(self.email_user.text()):
+                self.exit_ank()
 
 
 class AdminWidget(QMainWindow):
@@ -141,9 +192,8 @@ class Anketa2Widget(QMainWindow):
 class Question(QMessageBox):
     def __init__(self, text):
         super().__init__()
-        # uic.loadUi('oshibka.ui', self)
 
-        QMessageBox.question(self, 'Сообщение об ошибке', text,
+        QMessageBox.question(self, 'Сообщение об ошибке', f'{text[0]}\n{text[1]}',
                              QMessageBox.Ok)
         self.hide()
 
