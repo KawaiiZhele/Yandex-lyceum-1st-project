@@ -13,23 +13,32 @@ special_name = '"'
 
 
 def name_check(chname):
-    text, flag = ['Неправильная форма заполнения. Попробуйте снова.',
-                  'Пример заполнения: Иванов Иван Иванович'], True
+    text, flag = ['Форма заполнена некорректно. Попробуйте снова.',
+                  'Пример заполнения: Иванов Иван Иванович или Петров Петр (Нет отчества)'], True
+    flag_len = 0
+    if ' ' in chname:
+        chname = len(chname.split())
+    else:
+        flag = False
+
     for i in chname:
         if i not in letters and i != ' ':
             flag = False
             text[0] = 'В указанном имени присутствуют неизвестные символы.'
             break
-    if ' ' not in chname and flag:
+
+    if ' ' not in chname and flag_len != 3:
         flag = False
-    if flag:
+
+    if flag and flag_len == 3:
         return True
+
     Question(text)
     return False
 
 
 def telephone_number_check(chnumber):
-    text, flag = ['Неправильная форма заполнения. Введите, пожалуйста, заново.',
+    text, flag = ['Номер телефона введен некорректно. Введите, пожалуйста, заново.',
                   'Пример заполнения: +78005553535 или 78005553535'], True
 
     if len(chnumber) == 0:
@@ -56,17 +65,20 @@ def telephone_number_check(chnumber):
 
 
 def email_check(chemail):
-    text, flag = ['Неправильная форма заполнения. Попробуйте снова.',
+    text, flag = ['Электронная почта введена некорректно. Попробуйте снова.',
                   'Пример заполнения: example@gmail.com'], True
+    flag_sobaka = 0
     for i in chemail:
         if i not in letters_eng and i not in special:
             flag = False
             text[0] = 'В указанном имени присутствуют неизвестные символы.'
             break
-    if ' ' not in chemail and flag:
-        flag = False
-    if flag:
+        elif i == '@':
+            flag_sobaka += 1
+    if flag_sobaka == 1 and flag:
         return True
+    flag = False
+
     Question(text)
     return False
 
