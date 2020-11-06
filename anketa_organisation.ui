@@ -39,7 +39,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="name_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -61,7 +61,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="job_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -83,7 +83,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_6">
+      <widget class="QLineEdit" name="town_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -101,17 +101,6 @@ color: #ABBEFF</string>
        </property>
        <property name="text">
         <string>Уровень зарплаты:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QSpinBox" name="spinBox">
-       <property name="styleSheet">
-        <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #ABBEFF;
-border-radius: 4px;
-font: 10pt &quot;Fulbo Argenta&quot;;
-color: #ABBEFF</string>
        </property>
       </widget>
      </item>
@@ -149,7 +138,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="company_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -160,7 +149,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QTextEdit" name="textEdit_2">
+      <widget class="QTextEdit" name="duties_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -182,7 +171,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+      <widget class="QDoubleSpinBox" name="job_age_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -193,7 +182,7 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QTextEdit" name="textEdit_3">
+      <widget class="QTextEdit" name="requirements_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;
@@ -215,7 +204,18 @@ color: #ABBEFF</string>
       </widget>
      </item>
      <item row="8" column="1">
-      <widget class="QTextEdit" name="textEdit_4">
+      <widget class="QTextEdit" name="conditions_admin">
+       <property name="styleSheet">
+        <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #ABBEFF;
+border-radius: 10px;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #ABBEFF</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="salary_admin">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #ABBEFF;

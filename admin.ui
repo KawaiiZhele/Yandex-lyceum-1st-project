@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>531</width>
-    <height>794</height>
+    <height>823</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>20</y>
+       <y>30</y>
        <width>291</width>
        <height>20</height>
       </rect>
@@ -73,11 +73,11 @@ color: #2E2E2E</string>
      <string>Создать вакансию</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="check_text">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>210</y>
+      <y>230</y>
       <width>231</width>
       <height>491</height>
      </rect>
@@ -94,7 +94,7 @@ color: #AB85FF</string>
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>210</y>
+      <y>230</y>
       <width>231</width>
       <height>491</height>
      </rect>
@@ -104,14 +104,14 @@ color: #AB85FF</string>
 border: 2px solid #AB85FF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
-color: #AB85FF</string>
+color: #2E2E2E</string>
     </property>
    </widget>
    <widget class="QPushButton" name="exit_admin">
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>710</y>
+      <y>740</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -131,7 +131,7 @@ color: #2E2E2E</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>180</y>
+      <y>200</y>
       <width>191</width>
       <height>16</height>
      </rect>
@@ -149,7 +149,7 @@ color: #AB85FF</string>
      <rect>
       <x>190</x>
       <y>100</y>
-      <width>141</width>
+      <width>151</width>
       <height>16</height>
      </rect>
     </property>
@@ -159,6 +159,40 @@ color: #AB85FF</string>
     </property>
     <property name="text">
      <string>Ищите сотрудников?</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>180</y>
+      <width>221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
+color: #AB85FF</string>
+    </property>
+    <property name="text">
+     <string>Посмотрите! Может здесь те, </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>200</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
+color: #AB85FF</string>
+    </property>
+    <property name="text">
+     <string>кого вы ищите?</string>
     </property>
    </widget>
   </widget>

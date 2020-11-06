@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>411</width>
-    <height>801</height>
+    <height>817</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <x>20</x>
       <y>100</y>
       <width>372</width>
-      <height>611</height>
+      <height>636</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="resume">
@@ -39,7 +39,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="user_name">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -61,7 +61,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QSpinBox" name="spinBox_2">
+      <widget class="QSpinBox" name="age_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -84,7 +84,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="job_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -106,7 +106,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEdit_3">
+      <widget class="QLineEdit" name="tele_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -128,7 +128,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="lineEdit_4">
+      <widget class="QLineEdit" name="email_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -151,7 +151,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QTextEdit" name="textEdit_2">
+      <widget class="QTextEdit" name="net_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -173,18 +173,6 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QLineEdit" name="lineEdit_5">
-       <property name="styleSheet">
-        <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
-border-radius: 10px;
-font: 8pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
-</string>
-       </property>
-      </widget>
-     </item>
      <item row="7" column="0">
       <widget class="QLabel" name="label_9">
        <property name="styleSheet">
@@ -197,7 +185,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QLineEdit" name="lineEdit_6">
+      <widget class="QLineEdit" name="placelive_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -219,13 +207,14 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="8" column="1">
-      <widget class="QSpinBox" name="spinBox">
+      <widget class="QLineEdit" name="salary_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
-border-radius: 4px;
-font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
+border-radius: 10px;
+font: 8pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
+</string>
        </property>
       </widget>
      </item>
@@ -241,7 +230,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="9" column="1">
-      <widget class="QLineEdit" name="lineEdit_7">
+      <widget class="QLineEdit" name="citizenship_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -263,7 +252,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="10" column="1">
-      <widget class="QTextEdit" name="textEdit_3">
+      <widget class="QTextEdit" name="lenguage_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -285,7 +274,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="11" column="1">
-      <widget class="QTextEdit" name="textEdit_4">
+      <widget class="QTextEdit" name="education_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -307,7 +296,7 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="12" column="1">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+      <widget class="QDoubleSpinBox" name="job_age_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
@@ -330,13 +319,26 @@ color: #FF9C7F</string>
       </widget>
      </item>
      <item row="14" column="0" colspan="2">
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="about_you_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
 border: 2px solid #FF9C7F;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
 color: #FF9C7F</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QDateEdit" name="birth_user">
+       <property name="styleSheet">
+        <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #FF9C7F;
+border-radius: 4px;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
+
+</string>
        </property>
       </widget>
      </item>
@@ -382,7 +384,7 @@ color: #2E2E2E</string>
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>730</y>
+      <y>750</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -398,11 +400,11 @@ color: #2E2E2E</string>
      <string>Выйти</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exit_ankuser_2">
+   <widget class="QPushButton" name="save_ankuser">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>730</y>
+      <y>750</y>
       <width>101</width>
       <height>31</height>
      </rect>
