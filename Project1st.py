@@ -1,5 +1,6 @@
 import sys
 
+import datetime
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLabel, QLineEdit, \
@@ -17,7 +18,7 @@ def name_check(chname):
                   'Пример заполнения: Иванов Иван Иванович или Петров Петр (Нет отчества)'], True
     flag_len = 0
     if ' ' in chname:
-        chname = len(chname.split())
+        flag_len = len(chname.split())
     else:
         flag = False
 
@@ -47,6 +48,9 @@ def telephone_number_check(chnumber):
 
     if chnumber[0] == '+':
         chnumber = chnumber[1:]
+
+    if ' ' in chnumber:
+        chnumber = ''.join(chnumber.split())
 
     if len(chnumber) != 11:
         flag = False
@@ -83,8 +87,57 @@ def email_check(chemail):
     return False
 
 
-def birth_check(chbirth):
-    pass
+def birth_check(age, chbirth):
+    text = ['Дата рождения введена некорректно. Попробуйте снова.',
+            'Она должна соответствовать Вашему возрасту.']
+    chbirth = list(map(lambda x: int(x), chbirth.split('.')))
+    year_before = datetime.date(chbirth[2], chbirth[1], chbirth[0])
+    year_now = datetime.date.today()
+
+    if (year_now.year - year_before.year) >= 16 and \
+            (year_now.year - year_before.year) == age:
+        return True
+    Question(text)
+    return False
+
+
+def age_check(chage):
+    text, flag = ['Вы забыли указать свой возраст.',
+                  'Пример заполнения: 23'], True
+    if chage == 0:
+        Question(text)
+        return 'Забыл'
+
+    if chage >= 16:
+        return True
+
+    else:
+        text = ['Вы слишком малы, извините. Приходите позже.', '']
+        Question(text)
+        return 'Мал'
+
+
+def salary_check(chsalary):
+    text, flag = ['Зарплатные ожидания введены некорректно. Введите, пожалуйста, заново.',
+                  'Пример заполнения: 15000'], True
+
+    if len(chsalary) == 0:
+        Question(text)
+        return False
+
+    if ' ' in chsalary:
+        chsalary = ''.join(chsalary.split())
+
+    for i in chsalary:
+        if i not in numbers:
+            flag = False
+            text[0] = 'В указанном номере присутствуют неизвестные символы.'
+            break
+    if flag:
+        return True
+
+    Question(text)
+    return False
 
 
 def set_text():
@@ -153,23 +206,28 @@ class AnketaWidget(QMainWindow):
         self.exit_ankuser.clicked.connect(self.exit_ank)
         self.save_ankuser.clicked.connect(self.save_ank)  # (ДОРАБОТАТЬ!!!!!!!)
 
-    def exit_ank(self):
-        self.user_name.setText('')
-        self.tele_user.setText('')
-        # self.age_user.setText()
+    def exit_ank(self, check):
+        for i in check:
+            i.setText('')
+        # self.birth_user.setDate('01.01.2000')
         self.hide()
 
     def save_ank(self):
-        check = [self.user_name, self.job_user, self.tele_user, self.email_user, self.net_user,
-                 self.birth_user, self.placelive_user, self.salary_user, self.citizenship_user,
-                 self.lenguage_user, self.education_user, self.about_you_user]
+        check_user = [self.user_name, self.job_user, self.tele_user, self.email_user, self.net_user,
+                      self.placelive_user, self.salary_user, self.citizenship_user,
+                      self.lenguage_user, self.education_user, self.about_you_user]
         flag = True
-        # ВСТАВИТЬ СЮДА ИЗ 213
+        # СЮДА ИЗ 213
         if flag:
-            if name_check(self.user_name.text()) and \
-                    telephone_number_check(self.tele_user.text()) and \
-                    email_check(self.email_user.text()):
-                self.exit_ank()
+            flag_age = age_check(int(self.age_user.text()))
+            if flag_age == 'Мал':
+                self.exit_ank(check_user)
+            elif flag_age == 'Забыл':
+                pass
+            else:
+                # СЮДА ТОЖЕ
+                if True:
+                    self.exit_ank(check_user)
 
 
 class AdminWidget(QMainWindow):
