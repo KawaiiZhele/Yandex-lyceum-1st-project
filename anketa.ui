@@ -295,18 +295,6 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="12" column="1">
-      <widget class="QDoubleSpinBox" name="job_age_user">
-       <property name="styleSheet">
-        <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
-border-radius: 4px;
-font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
-</string>
-       </property>
-      </widget>
-     </item>
      <item row="13" column="0" colspan="2">
       <widget class="QLabel" name="label_7">
        <property name="styleSheet">
@@ -338,6 +326,18 @@ border-radius: 4px;
 font: 10pt &quot;Fulbo Argenta&quot;;
 color: #FF9C7F
 
+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QSpinBox" name="job_age_user">
+       <property name="styleSheet">
+        <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #FF9C7F;
+border-radius: 4px;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
 </string>
        </property>
       </widget>

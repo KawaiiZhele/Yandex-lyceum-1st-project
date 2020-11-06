@@ -1,5 +1,5 @@
 import sys
-
+import sqlite3
 import datetime
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
@@ -9,8 +9,47 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLab
 letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 letters_eng = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 numbers = '0123456789'
-special = '@.'
-special_name = '"'
+
+id_name_user = 1
+
+
+def get_result_user(idname, user, user1, user2):
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    print(5)
+    users = (idname + 1, user[0].text(), int(user1[0].text()), user[1].text(), user[2].text(),
+             user[3].text(), user2[0].toPlainText(), user1[1].text(), user[4].text(),
+             int(user[5].text()), user[6].text(), user2[1].toPlainText(), user2[2].toPlainText(),
+             user1[2].text(), user2[3].toPlainText())
+    print(45)
+    cur.execute("INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", users)
+    print(6)
+    con.commit()
+    con.close()
+
+
+def get_id_name_user():
+    global id_name_user
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    id_name = cur.execute("""
+                            SELECT id_counter
+                            FROM last_user_id
+                            """).fetchall()
+    con.close()
+    for item in id_name:
+        return item[0]
+
+
+def upload_id_name_user():
+    global id_name_user
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    id_name = cur.execute("""
+                                UPDATE last_user_id
+                                SET id_counter = id_counter + 1
+                                """).fetchall()
+    con.close()
 
 
 def name_check(chname):
@@ -73,7 +112,7 @@ def email_check(chemail):
                   'Пример заполнения: example@gmail.com'], True
     flag_sobaka = 0
     for i in chemail:
-        if i not in letters_eng and i not in special:
+        if i not in letters_eng and i != '@' and i != '.':
             flag = False
             text[0] = 'В указанном имени присутствуют неизвестные символы.'
             break
@@ -204,20 +243,41 @@ class AnketaWidget(QMainWindow):
         uic.loadUi('anketa.ui', self)
 
         self.exit_ankuser.clicked.connect(self.exit_ank)
-        self.save_ankuser.clicked.connect(self.save_ank)  # (ДОРАБОТАТЬ!!!!!!!)
+        self.save_ankuser.clicked.connect(self.save_ank)
 
     def exit_ank(self, check):
-        for i in check:
+        for i in check[0]:
             i.setText('')
-        # self.birth_user.setDate('01.01.2000')
+        # ДОДЕЛАТЬ УДАЛЕНИЕ ПРЕДЫДУЩЕЙ ДАТЫ С ЭКРАНА
+        for i in check[1]:
+            i.clear()
+        for i in check[2]:
+            i.setText('')
+
         self.hide()
 
     def save_ank(self):
-        check_user = [self.user_name, self.job_user, self.tele_user, self.email_user, self.net_user,
-                      self.placelive_user, self.salary_user, self.citizenship_user,
-                      self.lenguage_user, self.education_user, self.about_you_user]
+        global id_name
+        check_user = [[self.user_name, self.job_user, self.tele_user, self.email_user,
+                       self.placelive_user, self.salary_user, self.citizenship_user],
+                      [self.age_user, self.birth_user, self.job_age_user],
+                      [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
         flag = True
-        # СЮДА ИЗ 213
+
+        for i in check_user[0]:
+            if len(i.text()) == 0:
+                flag = False
+                Question(['Заполните пустые ячейки.',
+                          'Не забудьте все проверить перед сохранением.'])
+                break
+
+        for i in check_user[2]:
+            if len(i.toPlainText()) == 0:
+                flag = False
+                Question(['Заполните пустые ячейки.',
+                          'Не забудьте все проверить перед сохранением.'])
+                break
+
         if flag:
             flag_age = age_check(int(self.age_user.text()))
             if flag_age == 'Мал':
@@ -225,8 +285,15 @@ class AnketaWidget(QMainWindow):
             elif flag_age == 'Забыл':
                 pass
             else:
-                # СЮДА ТОЖЕ
-                if True:
+                if name_check(self.user_name.text()) and flag_age and \
+                        telephone_number_check(self.tele_user.text()) and \
+                        email_check(self.email_user.text()) and \
+                        salary_check(self.salary_user.text()) and \
+                        birth_check(int(self.age_user.text()), self.birth_user.text()):
+                    print(2)
+                    get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
+                    print(3)
+                    upload_id_name_user()
                     self.exit_ank(check_user)
 
 
