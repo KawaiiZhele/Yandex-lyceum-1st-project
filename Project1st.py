@@ -16,14 +16,11 @@ id_name_user = 1
 def get_result_user(idname, user, user1, user2):
     con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
     cur = con.cursor()
-    print(5)
     users = (idname + 1, user[0].text(), int(user1[0].text()), user[1].text(), user[2].text(),
              user[3].text(), user2[0].toPlainText(), user1[1].text(), user[4].text(),
              int(user[5].text()), user[6].text(), user2[1].toPlainText(), user2[2].toPlainText(),
              user1[2].text(), user2[3].toPlainText())
-    print(45)
     cur.execute("INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", users)
-    print(6)
     con.commit()
     con.close()
 
@@ -49,6 +46,7 @@ def upload_id_name_user():
                                 UPDATE last_user_id
                                 SET id_counter = id_counter + 1
                                 """).fetchall()
+    con.commit()
     con.close()
 
 
@@ -245,7 +243,11 @@ class AnketaWidget(QMainWindow):
         self.exit_ankuser.clicked.connect(self.exit_ank)
         self.save_ankuser.clicked.connect(self.save_ank)
 
-    def exit_ank(self, check):
+    def exit_ank(self):
+        check = [[self.user_name, self.job_user, self.tele_user, self.email_user,
+                       self.placelive_user, self.salary_user, self.citizenship_user],
+                      [self.age_user, self.birth_user, self.job_age_user],
+                      [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
         for i in check[0]:
             i.setText('')
         # ДОДЕЛАТЬ УДАЛЕНИЕ ПРЕДЫДУЩЕЙ ДАТЫ С ЭКРАНА
@@ -258,30 +260,29 @@ class AnketaWidget(QMainWindow):
 
     def save_ank(self):
         global id_name
+        flag = True
         check_user = [[self.user_name, self.job_user, self.tele_user, self.email_user,
                        self.placelive_user, self.salary_user, self.citizenship_user],
                       [self.age_user, self.birth_user, self.job_age_user],
                       [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
-        flag = True
-
         for i in check_user[0]:
             if len(i.text()) == 0:
                 flag = False
                 Question(['Заполните пустые ячейки.',
                           'Не забудьте все проверить перед сохранением.'])
                 break
-
-        for i in check_user[2]:
-            if len(i.toPlainText()) == 0:
-                flag = False
-                Question(['Заполните пустые ячейки.',
-                          'Не забудьте все проверить перед сохранением.'])
-                break
+        if flag:
+            for i in check_user[2]:
+                if len(i.toPlainText()) == 0:
+                    flag = False
+                    Question(['Заполните пустые ячейки.',
+                              'Не забудьте все проверить перед сохранением.'])
+                    break
 
         if flag:
             flag_age = age_check(int(self.age_user.text()))
             if flag_age == 'Мал':
-                self.exit_ank(check_user)
+                self.exit_ank()
             elif flag_age == 'Забыл':
                 pass
             else:
@@ -290,11 +291,9 @@ class AnketaWidget(QMainWindow):
                         email_check(self.email_user.text()) and \
                         salary_check(self.salary_user.text()) and \
                         birth_check(int(self.age_user.text()), self.birth_user.text()):
-                    print(2)
                     get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
-                    print(3)
                     upload_id_name_user()
-                    self.exit_ank(check_user)
+                    self.exit_ank()
 
 
 class AdminWidget(QMainWindow):
