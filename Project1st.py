@@ -226,17 +226,17 @@ def id_count():
     return result
 
 
-def set_text_user(user_text_user):
+def set_text_user():
     user_text_user = ''
     for i in id_count():
         con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
         cur = con.cursor()
         rows = cur.execute("SELECT * FROM user WHERE id = ?", str(i[0])).fetchall()
-
+        print(11)
         text = []
         for j in rows[0]:
             text.append(str(j))
-
+        print(22)
         user_text_user += f'ФИО пользователя: {text[1]}\n' + \
                           f'Возраст: {text[2]}\n' + \
                           f'Должность: {text[3]}\n' + \
@@ -252,7 +252,7 @@ def set_text_user(user_text_user):
                           f'Опыт работы: {text[13]}\n' + \
                           f'Информация о себе: {text[14]}\n' + \
                           '----------------------------------\n'
-
+    print(44)
     return user_text_user
 
 
@@ -301,13 +301,18 @@ class UserWidget(QMainWindow):
         self.entry.clicked.connect(self.run)
 
         self.exit_user.clicked.connect(self.exituser)
-        self.user_text_user.setText(set_text_user(self.user_text_user.toPlainText()))
+        self.upload.clicked.connect(self.uploadank)
+
+        self.user_text_user.setText(set_text_user())
 
     def run(self):
         self.dialog_user_anketa.show()
 
     def exituser(self):
         self.hide()
+
+    def uploadank(self):
+        self.user_text_user.setText(set_text_user())
 
 
 class AnketaWidget(QMainWindow):
@@ -331,6 +336,7 @@ class AnketaWidget(QMainWindow):
             i.setText('')
         self.birth_user.setDate(QtCore.QDate(2020, 1, 1))
         self.birth_user.setDisplayFormat("dd.MM.yyyy")
+        # self.user_text_user.setText(set_text_user())
         self.hide()
 
     def save_ank(self):
@@ -340,24 +346,9 @@ class AnketaWidget(QMainWindow):
                        self.placelive_user, self.salary_user, self.citizenship_user],
                       [self.age_user, self.birth_user, self.job_age_user],
                       [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
-
-        if flag:
-            flag_age = age_check(int(self.age_user.text()))
-            if flag_age == 'Мал':
-                self.exit_ank()
-            elif flag_age == 'Забыл':
-                pass
-            else:
-                if name_check(self.user_name.text()) and flag_age and \
-                        telephone_number_check(self.tele_user.text()) and \
-                        email_check(self.email_user.text()) and \
-                        salary_check(self.salary_user.text()) and \
-                        birth_check(int(self.age_user.text()), self.birth_user.text()) and \
-                        job_age_check(self.job_age_user.text(), self.age_user.text()):
-                    get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
-                    upload_id_name_user()
-                    self.user_text_user.setText(set_text_user(self.user_text_user.toPlainText()))
-                    self.exit_ank()
+        get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
+        upload_id_name_user()
+        self.exit_ank()
 
 
 class AdminWidget(QMainWindow):
@@ -365,12 +356,10 @@ class AdminWidget(QMainWindow):
         super().__init__()
         uic.loadUi('admin.ui', self)
 
-        self.user_text_admin.setText(set_text_user(self.user_text_admin.toPlainText()))
-
         self.dialog_admin_anketa = Anketa2Widget()
         self.entry.clicked.connect(self.run)
         self.exit_admin.clicked.connect(self.exitadmin)
-        self.user_text_admin.setText(set_text_user(self.user_text_admin.toPlainText()))
+        self.user_text_admin.setText(set_text_user())
 
     def run(self):
         self.dialog_admin_anketa.show()
