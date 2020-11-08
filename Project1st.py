@@ -106,7 +106,7 @@ def name_check(chname):
     return False
 
 
-def telephone_number_check(chnumber):
+def telephone_number_check(chnumber, name):
     text, flag = ['Номер телефона введен некорректно. Введите, пожалуйста, заново.',
                   'Пример заполнения: +78005553535 или 78005553535'], True
 
@@ -130,7 +130,22 @@ def telephone_number_check(chnumber):
             break
 
     if flag:
-        return True
+        con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+        cur = con.cursor()
+        mobile_check = cur.execute("""
+                            SELECT id
+                            FROM user
+                            WHERE mobile_phone = ?
+                            """, chnumber).fetchall()
+        name_ch = cur.execute("""
+                            SELECT user_name
+                            FROM user
+                            WHERE id = ?
+                            """, mobile_check).fetchall()
+        con.close()
+        if len(mobile_check) != 0 and len(name_ch) != 0:
+            if name_ch[0][0].lower() != name.lower():
+                return True
 
     Question(text)
     return False
@@ -232,11 +247,9 @@ def set_text_user():
         con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
         cur = con.cursor()
         rows = cur.execute("SELECT * FROM user WHERE id = ?", str(i[0])).fetchall()
-        print(11)
         text = []
         for j in rows[0]:
             text.append(str(j))
-        print(22)
         user_text_user += f'ФИО пользователя: {text[1]}\n' + \
                           f'Возраст: {text[2]}\n' + \
                           f'Должность: {text[3]}\n' + \
@@ -252,7 +265,6 @@ def set_text_user():
                           f'Опыт работы: {text[13]}\n' + \
                           f'Информация о себе: {text[14]}\n' + \
                           '----------------------------------\n'
-    print(44)
     return user_text_user
 
 
@@ -340,15 +352,43 @@ class AnketaWidget(QMainWindow):
         self.hide()
 
     def save_ank(self):
+        global id_name
         flag = True
         text = ['Заполните пустые ячейки.', 'Не забудьте все проверить перед сохранением.']
         check_user = [[self.user_name, self.job_user, self.tele_user, self.email_user,
                        self.placelive_user, self.salary_user, self.citizenship_user],
                       [self.age_user, self.birth_user, self.job_age_user],
                       [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
-        get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
-        upload_id_name_user()
-        self.exit_ank()
+        for i in check_user[0]:
+            if len(i.text()) == 0:
+                flag = False
+                Question(['Заполните пустые ячейки.',
+                          'Не забудьте все проверить перед сохранением.'])
+                break
+        if flag:
+            for i in check_user[2]:
+                if len(i.toPlainText()) == 0:
+                    flag = False
+                    Question(['Заполните пустые ячейки.',
+                              'Не забудьте все проверить перед сохранением.'])
+                    break
+
+        if flag:
+            flag_age = age_check(int(self.age_user.text()))
+            if flag_age == 'Мал':
+                self.exit_ank()
+            elif flag_age == 'Забыл':
+                pass
+            else:
+                if name_check(self.user_name.text()) and flag_age and \
+                        telephone_number_check(self.tele_user.text(), self.user_name.text()) and \
+                        email_check(self.email_user.text()) and \
+                        salary_check(self.salary_user.text()) and \
+                        birth_check(int(self.age_user.text()), self.birth_user.text()) and \
+                        job_age_check(self.job_age_user.text(), self.age_user.text()):
+                    get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
+                upload_id_name_user()
+                self.exit_ank()
 
 
 class AdminWidget(QMainWindow):
@@ -360,12 +400,16 @@ class AdminWidget(QMainWindow):
         self.entry.clicked.connect(self.run)
         self.exit_admin.clicked.connect(self.exitadmin)
         self.user_text_admin.setText(set_text_user())
+        self.upload.clicked.connect(self.uploadank)
 
     def run(self):
         self.dialog_admin_anketa.show()
 
     def exitadmin(self):
         self.hide()
+
+    def uploadank(self):
+        self.user_text_admin.setText(set_text_user())
 
 
 class Anketa2Widget(QMainWindow):
