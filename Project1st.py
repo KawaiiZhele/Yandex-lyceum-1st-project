@@ -2,15 +2,14 @@ import sys
 import sqlite3
 import datetime
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLCDNumber, QLabel, QLineEdit, \
     QCheckBox
+from PyQt5 import QtCore, QtWidgets
 
 letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 letters_eng = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 numbers = '0123456789'
-
-id_name_user = 1
 
 
 def get_result_user(idname, user, user1, user2):
@@ -25,13 +24,35 @@ def get_result_user(idname, user, user1, user2):
     con.close()
 
 
+def get_reslt_admin(idname, user, user1, user2):
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    users = (idname + 1, user[0].text(), user[1].text(), user[2].text(), int(user[3].text()),
+             user1[0].text(), user2[0].toPlainText(), user2[1].toPlainText(),
+             user2[2].toPlainText(), user2[3].toPlainText())
+    cur.execute("INSERT INTO admin VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", users)
+    con.commit()
+    con.close()
+
+
 def get_id_name_user():
-    global id_name_user
     con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
     cur = con.cursor()
     id_name = cur.execute("""
-                            SELECT id_counter
-                            FROM last_user_id
+                            SELECT id_counter_user
+                            FROM last_id
+                            """).fetchall()
+    con.close()
+    for item in id_name:
+        return item[0]
+
+
+def get_id_name_admin():
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    id_name = cur.execute("""
+                            SELECT id_counter_admin
+                            FROM last_id
                             """).fetchall()
     con.close()
     for item in id_name:
@@ -39,13 +60,23 @@ def get_id_name_user():
 
 
 def upload_id_name_user():
-    global id_name_user
     con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
     cur = con.cursor()
-    id_name = cur.execute("""
-                                UPDATE last_user_id
-                                SET id_counter = id_counter + 1
-                                """).fetchall()
+    cur.execute("""
+                    UPDATE last_id
+                    SET id_counter_user = id_counter_user + 1
+                    """).fetchall()
+    con.commit()
+    con.close()
+
+
+def upload_id_name_admin():
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    cur.execute("""
+                    UPDATE last_id
+                    SET id_counter_admin = id_counter_admin + 1
+                    """).fetchall()
     con.commit()
     con.close()
 
@@ -124,6 +155,14 @@ def email_check(chemail):
     return False
 
 
+def job_age_check(chjob, chage):
+    text = ['Опыт работы некорректен.', 'Попробуйте снова.']
+    if int(chjob) < int(chage):
+        return True
+    Question(text)
+    return False
+
+
 def birth_check(age, chbirth):
     text = ['Дата рождения введена некорректно. Попробуйте снова.',
             'Она должна соответствовать Вашему возрасту.']
@@ -177,9 +216,44 @@ def salary_check(chsalary):
     return False
 
 
-def set_text():
-    with open('проба.txt', encoding='utf8') as file:
-        return file.read()
+def id_count():
+    con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+    cur = con.cursor()
+    result = cur.execute("""
+                        SELECT DISTINCT id
+                        FROM user
+                        """).fetchall()
+    return result
+
+
+def set_text_user(user_text_user):
+    user_text_user = ''
+    for i in id_count():
+        con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
+        cur = con.cursor()
+        rows = cur.execute("SELECT * FROM user WHERE id = ?", str(i[0])).fetchall()
+
+        text = []
+        for j in rows[0]:
+            text.append(str(j))
+
+        user_text_user += f'ФИО пользователя: {text[1]}\n' + \
+                          f'Возраст: {text[2]}\n' + \
+                          f'Должность: {text[3]}\n' + \
+                          f'Мобильный телефон: {text[4]}\n' + \
+                          f'Электронная почта: {text[5]}\n' + \
+                          f'Профиль в соц.сетях: {text[6]}\n' + \
+                          f'Дата рождения: {text[7]}\n' + \
+                          f'Место проживания: {text[8]}\n' + \
+                          f'Зарплатные ожидания: {text[9]}\n' + \
+                          f'Гражданство: {text[10]}\n' + \
+                          f'Язык: {text[11]}\n' + \
+                          f'Образование: {text[12]}\n' + \
+                          f'Опыт работы: {text[13]}\n' + \
+                          f'Информация о себе: {text[14]}\n' + \
+                          '----------------------------------\n'
+
+    return user_text_user
 
 
 class FirstWidget(QMainWindow):
@@ -227,6 +301,7 @@ class UserWidget(QMainWindow):
         self.entry.clicked.connect(self.run)
 
         self.exit_user.clicked.connect(self.exituser)
+        self.user_text_user.setText(set_text_user(self.user_text_user.toPlainText()))
 
     def run(self):
         self.dialog_user_anketa.show()
@@ -245,39 +320,26 @@ class AnketaWidget(QMainWindow):
 
     def exit_ank(self):
         check = [[self.user_name, self.job_user, self.tele_user, self.email_user,
-                       self.placelive_user, self.salary_user, self.citizenship_user],
-                      [self.age_user, self.birth_user, self.job_age_user],
-                      [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
+                  self.placelive_user, self.salary_user, self.citizenship_user],
+                 [self.age_user, self.birth_user, self.job_age_user],
+                 [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
         for i in check[0]:
             i.setText('')
-        # ДОДЕЛАТЬ УДАЛЕНИЕ ПРЕДЫДУЩЕЙ ДАТЫ С ЭКРАНА
         for i in check[1]:
             i.clear()
         for i in check[2]:
             i.setText('')
-
+        self.birth_user.setDate(QtCore.QDate(2020, 1, 1))
+        self.birth_user.setDisplayFormat("dd.MM.yyyy")
         self.hide()
 
     def save_ank(self):
-        global id_name
         flag = True
+        text = ['Заполните пустые ячейки.', 'Не забудьте все проверить перед сохранением.']
         check_user = [[self.user_name, self.job_user, self.tele_user, self.email_user,
                        self.placelive_user, self.salary_user, self.citizenship_user],
                       [self.age_user, self.birth_user, self.job_age_user],
                       [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
-        for i in check_user[0]:
-            if len(i.text()) == 0:
-                flag = False
-                Question(['Заполните пустые ячейки.',
-                          'Не забудьте все проверить перед сохранением.'])
-                break
-        if flag:
-            for i in check_user[2]:
-                if len(i.toPlainText()) == 0:
-                    flag = False
-                    Question(['Заполните пустые ячейки.',
-                              'Не забудьте все проверить перед сохранением.'])
-                    break
 
         if flag:
             flag_age = age_check(int(self.age_user.text()))
@@ -290,9 +352,11 @@ class AnketaWidget(QMainWindow):
                         telephone_number_check(self.tele_user.text()) and \
                         email_check(self.email_user.text()) and \
                         salary_check(self.salary_user.text()) and \
-                        birth_check(int(self.age_user.text()), self.birth_user.text()):
+                        birth_check(int(self.age_user.text()), self.birth_user.text()) and \
+                        job_age_check(self.job_age_user.text(), self.age_user.text()):
                     get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
                     upload_id_name_user()
+                    self.user_text_user.setText(set_text_user(self.user_text_user.toPlainText()))
                     self.exit_ank()
 
 
@@ -301,11 +365,12 @@ class AdminWidget(QMainWindow):
         super().__init__()
         uic.loadUi('admin.ui', self)
 
+        self.user_text_admin.setText(set_text_user(self.user_text_admin.toPlainText()))
+
         self.dialog_admin_anketa = Anketa2Widget()
         self.entry.clicked.connect(self.run)
         self.exit_admin.clicked.connect(self.exitadmin)
-
-        self.check_text.setText(set_text())
+        self.user_text_admin.setText(set_text_user(self.user_text_admin.toPlainText()))
 
     def run(self):
         self.dialog_admin_anketa.show()
@@ -320,9 +385,50 @@ class Anketa2Widget(QMainWindow):
         uic.loadUi('anketa_organisation.ui', self)
 
         self.exit_ankuser.clicked.connect(self.exit_ank_admin)
+        self.save_ankadmin.clicked.connect(self.save_ank_admin)
 
     def exit_ank_admin(self):
+        check = [[self.name_admin, self.job_admin, self.town_admin, self.salary_admin],
+                 [self.job_age_user], [self.company_admin, self.duties_user,
+                                       self.requirements_admin, self.conditions_admin]]
+        for i in check[0]:
+            i.setText('')
+        for i in check[1]:
+            i.clear()
+        for i in check[2]:
+            i.setText('')
         self.hide()
+
+    def save_ank_admin(self):
+        check_admin = [[self.name_admin, self.job_admin, self.town_admin, self.salary_admin],
+                       [self.job_age_user], [self.company_admin, self.duties_user,
+                                             self.requirements_admin, self.conditions_admin]]
+        text = ['Заполните пустые ячейки.', 'Не забудьте все проверить перед сохранением.']
+        flag = True
+
+        for i in check_admin[0]:
+            if len(i.text()) == 0:
+                flag = False
+                Question(text)
+                break
+
+        if flag:
+            for i in check_admin[2]:
+                if len(i.toPlainText()) == 0:
+                    flag = False
+                    Question(text)
+                    break
+
+        if flag:
+            if len(check_admin[1][0].text()) == 0:
+                flag = False
+                Question(text)
+
+        if flag:
+            if salary_check(self.salary_admin.text()):
+                get_reslt_admin(get_id_name_admin(), check_admin[0], check_admin[1], check_admin[2])
+                upload_id_name_admin()
+                self.exit_ank_admin()
 
 
 class Question(QMessageBox):
