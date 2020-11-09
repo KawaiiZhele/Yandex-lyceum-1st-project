@@ -75,6 +75,28 @@ color: #2E2E2E</string>
       <string>Добро пожаловать!</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="upload">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>10</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #FF758B;
+background-image: url(C:/hello/circulararrowscouple.png);
+background-position: center;
+background-repeat: no-reperat;
+border-radius: 10px;
+border: 6px solid #FF758B;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="exit_user">
     <property name="geometry">
@@ -96,7 +118,7 @@ color: #2E2E2E</string>
      <string>Выйти</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="user_text_user">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -113,7 +135,7 @@ font: 8pt &quot;Fulbo Argenta&quot;;
 color: #FF758B</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="textBrowser_2">
+   <widget class="QTextBrowser" name="admin_text_user">
     <property name="geometry">
      <rect>
       <x>280</x>

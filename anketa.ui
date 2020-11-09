@@ -60,18 +60,6 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QSpinBox" name="age_user">
-       <property name="styleSheet">
-        <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
-border-radius: 4px;
-font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
-</string>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="styleSheet">
@@ -163,17 +151,6 @@ color: #FF9C7F
       </widget>
      </item>
      <item row="6" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F</string>
-       </property>
-       <property name="text">
-        <string>Дата рождения:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
       <widget class="QLabel" name="label_9">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -184,7 +161,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
+     <item row="6" column="1">
       <widget class="QLineEdit" name="placelive_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -195,7 +172,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
+     <item row="7" column="0">
       <widget class="QLabel" name="label_10">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -206,7 +183,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
+     <item row="7" column="1">
       <widget class="QLineEdit" name="salary_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -218,7 +195,7 @@ color: #FF9C7F
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
+     <item row="8" column="0">
       <widget class="QLabel" name="label_11">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -229,7 +206,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="1">
+     <item row="8" column="1">
       <widget class="QLineEdit" name="citizenship_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -240,7 +217,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="0">
+     <item row="9" column="0">
       <widget class="QLabel" name="label_12">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -251,7 +228,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
+     <item row="9" column="1">
       <widget class="QTextEdit" name="lenguage_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -262,7 +239,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
+     <item row="10" column="0">
       <widget class="QLabel" name="label_13">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -273,7 +250,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
+     <item row="10" column="1">
       <widget class="QTextEdit" name="education_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -284,7 +261,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="12" column="0">
+     <item row="11" column="0">
       <widget class="QLabel" name="label_6">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -295,7 +272,19 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="13" column="0" colspan="2">
+     <item row="11" column="1">
+      <widget class="QSpinBox" name="job_age_user">
+       <property name="styleSheet">
+        <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #FF9C7F;
+border-radius: 4px;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #FF9C7F
+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0" colspan="2">
       <widget class="QLabel" name="label_7">
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Fulbo Argenta&quot;;
@@ -306,7 +295,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="14" column="0" colspan="2">
+     <item row="13" column="0" colspan="2">
       <widget class="QTextEdit" name="about_you_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -317,7 +306,7 @@ color: #FF9C7F</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
+     <item row="1" column="1">
       <widget class="QDateEdit" name="birth_user">
        <property name="styleSheet">
         <string notr="true">bachground-color: #2E2E2E;
@@ -326,18 +315,6 @@ border-radius: 4px;
 font: 10pt &quot;Fulbo Argenta&quot;;
 color: #FF9C7F
 
-</string>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="1">
-      <widget class="QSpinBox" name="job_age_user">
-       <property name="styleSheet">
-        <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #FF9C7F;
-border-radius: 4px;
-font: 10pt &quot;Fulbo Argenta&quot;;
-color: #FF9C7F
 </string>
        </property>
       </widget>

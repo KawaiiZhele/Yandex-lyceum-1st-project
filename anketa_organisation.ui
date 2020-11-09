@@ -170,17 +170,6 @@ color: #ABBEFF</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QDoubleSpinBox" name="job_age_admin">
-       <property name="styleSheet">
-        <string notr="true">bachground-color: #2E2E2E;
-border: 2px solid #ABBEFF;
-border-radius: 4px;
-font: 10pt &quot;Fulbo Argenta&quot;;
-color: #ABBEFF</string>
-       </property>
-      </widget>
-     </item>
      <item row="7" column="1">
       <widget class="QTextEdit" name="requirements_admin">
        <property name="styleSheet">
@@ -222,6 +211,18 @@ border: 2px solid #ABBEFF;
 border-radius: 10px;
 font: 8pt &quot;Fulbo Argenta&quot;;
 color: #ABBEFF</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QSpinBox" name="job_age_user">
+       <property name="styleSheet">
+        <string notr="true">bachground-color: #2E2E2E;
+border: 2px solid #ABBEFF;
+border-radius: 4px;
+font: 10pt &quot;Fulbo Argenta&quot;;
+color: #ABBEFF
+</string>
        </property>
       </widget>
      </item>
@@ -283,7 +284,7 @@ color: #2E2E2E</string>
      <string>Выйти</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exit_ankuser_2">
+   <widget class="QPushButton" name="save_ankadmin">
     <property name="geometry">
      <rect>
       <x>20</x>
