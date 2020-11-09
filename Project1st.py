@@ -13,17 +13,13 @@ numbers = '0123456789'
 
 
 def get_result_user(idname, user, user1, user2):
-    # [[self.user_name, self.job_user, self.tele_user, self.email_user,
-    #                   self.placelive_user, self.salary_user, self.citizenship_user],
-    #                  [self.birth_user, self.job_age_user],
-    #                  [self.net_user, self.lenguage_user, self.education_user, self.about_you_user]]
     con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
     cur = con.cursor()
     users = (idname + 1, user[0].text(), user1[0].text(), user[1].text(), user[2].text(),
              user[3].text(), user2[0].toPlainText(), user[4].text(),
              int(user[5].text()), user[6].text(), user2[1].toPlainText(), user2[2].toPlainText(),
-             user1[2].text(), user2[3].toPlainText())
-    cur.execute("INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", users)
+             int(user1[1].text()), user2[3].toPlainText())
+    cur.execute("INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", users)
     con.commit()
     con.close()
 
@@ -103,10 +99,9 @@ def name_check(chname):
 
     if ' ' not in chname and flag_len != 3:
         flag = False
-
     if flag and flag_len == 3:
         otch = chname.split()
-        if otch[0] >= 1 and otch[1] >= 2 and otch[2] >= 3:
+        if len(otch[0]) >= 1 and len(otch[1]) >= 2 and len(otch[2]) >= 3:
             return True
     Question(text)
     return False
@@ -171,14 +166,6 @@ def email_check(chemail):
     return False
 
 
-def job_age_check(chjob, chage):
-    text = ['Опыт работы некорректен.', 'Попробуйте снова.']
-    if int(chjob) < int(chage):
-        return True
-    Question(text)
-    return False
-
-
 def birth_check(chbirth):
     text = ['Дата рождения введена некорректно. Попробуйте снова.',
             'Она должна соответствовать Вашему возрасту.']
@@ -230,6 +217,26 @@ def job_check(chjob):
     return False
 
 
+def profile_check(chprofile):
+    text, flag = ['Ссылка введена некорректно. Попробуйте снова.',
+                  'https://vk.com/'], True
+    if ' ' in chprofile:
+        chprofile = chprofile.split()
+    else:
+        chprofile = [chprofile]
+
+    for i in chprofile:
+        if not i.startswith('https://'):
+            flag = False
+            break
+
+    if flag:
+        return True
+
+    Question(text)
+    return False
+
+
 def id_count():
     con = sqlite3.connect(r'C:\Users\Екатерина\PycharmProjects\pythonProject\user_anketa.sqlite')
     cur = con.cursor()
@@ -265,14 +272,13 @@ def set_text_user():
                           f'Мобильный телефон: {text[4]}\n' + \
                           f'Электронная почта: {text[5]}\n' + \
                           f'Профиль в соц.сетях: {text[6]}\n' + \
-                          f'Дата рождения: {text[7]}\n' + \
-                          f'Место проживания: {text[8]}\n' + \
-                          f'Зарплатные ожидания: {text[9]}\n' + \
-                          f'Гражданство: {text[10]}\n' + \
-                          f'Язык: {text[11]}\n' + \
-                          f'Образование: {text[12]}\n' + \
-                          f'Опыт работы: {text[13]}\n' + \
-                          f'Информация о себе: {text[14]}\n' + \
+                          f'Место проживания: {text[7]}\n' + \
+                          f'Зарплатные ожидания: {text[8]}\n' + \
+                          f'Гражданство: {text[9]}\n' + \
+                          f'Язык: {text[10]}\n' + \
+                          f'Образование: {text[11]}\n' + \
+                          f'Опыт работы: {text[12]}\n' + \
+                          f'Информация о себе: {text[13]}\n' + \
                           '----------------------------------\n'
     return user_text_user
 
@@ -357,6 +363,7 @@ class UserWidget(QMainWindow):
 
     def uploadank(self):
         self.user_text_user.setText(set_text_user())
+        self.admin_text_user.setText(set_text_admin())
 
 
 class AnketaWidget(QMainWindow):
@@ -401,7 +408,6 @@ class AnketaWidget(QMainWindow):
                     flag = False
                     Question(text)
                     break
-
         if flag:
             flag_age = birth_check(self.birth_user.text())
             if flag_age == 'Мал':
@@ -411,8 +417,8 @@ class AnketaWidget(QMainWindow):
                         telephone_number_check(self.tele_user.text()) and \
                         email_check(self.email_user.text()) and \
                         salary_check(self.salary_user.text()) and \
-                        job_age_check(self.job_age_user.text(), self.age_user.text()) and \
-                        job_check(self.job_user.text()):
+                        job_check(self.job_user.text()) and \
+                        profile_check(self.net_user.toPlainText()):
                     get_result_user(get_id_name_user(), check_user[0], check_user[1], check_user[2])
                     upload_id_name_user()
                     self.exit_ank()
@@ -440,6 +446,7 @@ class AdminWidget(QMainWindow):
 
     def uploadank(self):
         self.user_text_admin.setText(set_text_user())
+        self.admin_text_admin.setText(set_text_admin())
 
 
 class Anketa2Widget(QMainWindow):
